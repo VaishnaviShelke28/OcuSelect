@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}OcuSelect | Ocular Compound Profiling{% endblock %}
+
+{% block content %}
+
+<section class="home-hero">
+
+    <div class="mascot-stage">
+        <div class="mascot-glow"></div>
+
+        <img
+            src="{{ url_for('static', filename='images/mascot.png') }}"
+            class="hero-mascot"
+            alt="OcuSelect bioinformatics mascot"
+        >
+    </div>
+
+    <div class="hero-copy">
+
+        <div class="eyebrow">
+            BIOINFORMATICS • CHEMINFORMATICS • MACHINE LEARNING
+        </div>
+
+        <h1>Ocu<span>Select</span></h1>
+
+        <h2>
+            Dual-Endpoint Computational Profiling
+            for Ocular Compounds
+        </h2>
+
+        <p>
+            Explore compounds through predicted TGFBR1 activity,
+            predicted corneal permeability, molecular properties
+            and chemical-space similarity.
+        </p>
+
+        <div class="hero-actions">
+            <a href="/analyze" class="btn primary">
+                ⚗ Analyze a Compound →
+            </a>
+
+            <a href="/batch" class="btn secondary">
+                ⇧ Upload Compound CSV →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="workflow-section">
+
+    <div class="section-heading">
+        <span>OCUSELECT WORKFLOW</span>
+        <h2>From molecular input to interpretable profiling</h2>
+    </div>
+
+    <div class="workflow">
+
+        <div class="workflow-card">
+            <div class="workflow-number">01</div>
+            <div class="workflow-icon">⌬</div>
+            <h3>Validate</h3>
+            <p>
+                Parse and standardize the submitted molecular
+                SMILES using RDKit (largest fragment, neutral form).
+            </p>
+        </div>
+
+        <div class="workflow-arrow">→</div>
+
+        <div class="workflow-card">
+            <div class="workflow-number">02</div>
+            <div class="workflow-icon">◈</div>
+            <h3>Predict</h3>
+            <p>
+                Estimate TGFBR1 pIC50 and corneal logPapp
+                using two trained ML models.
+            </p>
+        </div>
+
+        <div class="workflow-arrow">→</div>
+
+        <div class="workflow-card">
+            <div class="workflow-number">03</div>
+            <div class="workflow-icon">◎</div>
+            <h3>Compare</h3>
+            <p>
+                Measure Morgan-fingerprint similarity against
+                known TGFBR1 chemistry.
+            </p>
+        </div>
+
+        <div class="workflow-arrow">→</div>
+
+        <div class="workflow-card">
+            <div class="workflow-number">04</div>
+            <div class="workflow-icon">✦</div>
+            <h3>Profile</h3>
+            <p>
+                Combine both predictions with molecular and
+                similarity context, and flag results outside
+                the model range.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="feature-grid">
+
+    <div class="feature-card">
+        <div class="feature-icon blue">◈</div>
+        <h3>Dual-Endpoint Prediction</h3>
+        <p>
+            TGFBR1 activity and corneal permeability
+            are modeled independently.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <div class="feature-icon mint">◎</div>
+        <h3>Chemical Similarity</h3>
+        <p>
+            Find the nearest compound in the curated
+            TGFBR1 ChEMBL reference set.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <div class="feature-icon coral">▥</div>
+        <h3>Interpretable Results</h3>
+        <p>
+            View molecular properties, dataset-relative
+            positions and endpoint profile.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <div class="feature-icon violet">⚙</div>
+        <h3>Batch Ready</h3>
+        <p>
+            Analyze multiple SMILES and export
+            a complete results CSV.
+        </p>
+    </div>
+
+</section>
+
+
+<div class="research-note">
+    <strong>Research-use tool.</strong>
+    Predictions represent computational prioritization and are
+    not evidence of clinical efficacy, safety or therapeutic suitability.
+</div>
+
+
+<footer>
+    <span>OcuSelect • M.Sc. Bioinformatics Project</span>
+
+    <span>
+        Developed by <strong>Vaishnavi Rajendra Shelke</strong>
+        ·
+        <a href="https://www.linkedin.com/in/vaishnavi-rajendra-shelke-9464672a6"
+           target="_blank">LinkedIn</a>
+        ·
+        <a href="https://github.com/VaishnaviShelke28"
+           target="_blank">GitHub</a>
+    </span>
+</footer>
+
+{% endblock %}

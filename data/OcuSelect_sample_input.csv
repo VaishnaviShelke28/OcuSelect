@@ -1,0 +1,4 @@
+Compound,SMILES
+Compound_1,CC(=O)Oc1ccccc1C(=O)O
+Compound_2,Cn1c(=O)c2c(ncn2C)n(C)c1=O
+Compound_3,CC(=O)NC1=CC=C(C=C1)O

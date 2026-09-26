@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PredictionRegistry xmlns="http://www.qsardb.org/QDB">
+    <Prediction>
+        <Id>Eq.3b_train</Id>
+        <Name>Trainig set</Name>
+        <Description>Prediction values were recalculated with Eq.3b</Description>
+        <Labels></Labels>
+        <Cargos>values</Cargos>
+        <ModelId>Eq.3b</ModelId>
+        <Type>training</Type>
+        <Application>Simca-P 10.5</Application>
+    </Prediction>
+    <Prediction>
+        <Id>Eq.4b_train</Id>
+        <Name>Trainig set</Name>
+        <Description>Prediction values were recalculated with Eq.4b</Description>
+        <Labels></Labels>
+        <Cargos>values</Cargos>
+        <ModelId>Eq.4b</ModelId>
+        <Type>training</Type>
+        <Application>Simca-P 10.5</Application>
+    </Prediction>
+    <Prediction>
+        <Id>Eq.3b_valid</Id>
+        <Name>Validation set</Name>
+        <Labels></Labels>
+        <Cargos>values</Cargos>
+        <ModelId>Eq.3b</ModelId>
+        <Type>validation</Type>
+        <Application>Simca-P 10.5</Application>
+    </Prediction>
+    <Prediction>
+        <Id>Eq.4b_valid</Id>
+        <Name>Validation set</Name>
+        <Labels></Labels>
+        <Cargos>values</Cargos>
+        <ModelId>Eq.4b</ModelId>
+        <Type>validation</Type>
+        <Application>Simca-P 10.5</Application>
+    </Prediction>
+</PredictionRegistry>

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Batch Analysis | OcuSelect{% endblock %}
+
+{% block content %}
+
+<section class="content-header">
+    <span class="eyebrow">MULTI-COMPOUND ANALYSIS</span>
+    <h1>Batch <span>Analysis</span></h1>
+    <p>
+        Upload a CSV with many compounds. OcuSelect analyzes each
+        valid SMILES and gives you a results table and a CSV download.
+    </p>
+</section>
+
+
+<section class="input-panel">
+    <form method="POST" action="/batch" enctype="multipart/form-data">
+
+        <label>Compound CSV file</label>
+
+        <input type="file" name="csv_file" accept=".csv,text/csv" required>
+
+        <div class="form-bottom">
+            <small>
+                Required column: SMILES. Optional column: Compound.
+                Maximum 1000 rows.
+            </small>
+            <button class="btn primary" type="submit">
+                Run Batch Analysis →
+            </button>
+        </div>
+
+    </form>
+</section>
+
+
+<div class="research-note">
+    <strong>Expected CSV format</strong>
+    <pre>Compound,SMILES
+Caffeine,Cn1c(=O)c2c(ncn2C)n(C)c1=O
+Aspirin,CC(=O)Oc1ccccc1C(=O)O</pre>
+</div>
+
+
+{% if error %}
+<div class="error-box">{{ error }}</div>
+{% endif %}
+
+
+{% if results %}
+<section class="results">
+
+    <div class="section-heading">
+        <span>BATCH RESULTS</span>
+        <h2>{{ results|length }} compounds processed</h2>
+    </div>
+
+    <div class="table-wrap">
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Compound</th>
+                    <th>Status</th>
+                    <th>Reliability</th>
+                    <th>pIC50</th>
+                    <th>logPapp</th>
+                    <th>Similarity</th>
+                    <th>Profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                <tr>
+                    <td>{{ row.compound }}</td>
+                    <td>{{ row.status }}</td>
+                    <td>{{ row.reliability }}</td>
+                    <td>{{ row.pic50 }}</td>
+                    <td>{{ row.logpapp }}</td>
+                    <td>{{ row.similarity }}</td>
+                    <td>{{ row.quadrant }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% if download_file %}
+    <p style="text-align:center; margin-top:24px;">
+        <a class="btn primary" href="/download/{{ download_file }}">
+            Download Full Results CSV ↓
+        </a>
+    </p>
+    {% endif %}
+
+</section>
+{% endif %}
+
+{% endblock %}

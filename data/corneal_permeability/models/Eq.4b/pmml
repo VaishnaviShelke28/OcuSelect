@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_1" version="4.1">
+    <DataDictionary>
+        <DataField name="properties/logPapp" displayName="The logarithm of the corneal permeability" optype="continuous" dataType="double"/>
+        <DataField name="descriptors/HBtot" displayName="asd" optype="continuous" dataType="double"/>
+        <DataField name="descriptors/logD8.0" displayName="ads" optype="continuous" dataType="double"/>
+    </DataDictionary>
+    <RegressionModel functionName="regression" targetFieldName="properties/logPapp">
+        <MiningSchema>
+            <MiningField name="properties/logPapp" usageType="predicted"/>
+            <MiningField name="descriptors/HBtot" usageType="active"/>
+            <MiningField name="descriptors/logD8.0" usageType="active"/>
+        </MiningSchema>
+        <RegressionTable intercept="-4.002">
+            <NumericPredictor name="descriptors/HBtot" coefficient="-0.169"/>
+            <NumericPredictor name="descriptors/logD8.0" coefficient="0.265"/>
+        </RegressionTable>
+    </RegressionModel>
+</PMML>

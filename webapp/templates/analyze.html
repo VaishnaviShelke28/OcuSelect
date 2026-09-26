@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+
+{% block title %}Analyze Compound | OcuSelect{% endblock %}
+
+{% block content %}
+
+<section class="content-header">
+    <span class="eyebrow">SINGLE COMPOUND ANALYSIS</span>
+    <h1>Analyze <span>Compound</span></h1>
+
+    <p>
+        Enter one molecular SMILES to generate the complete
+        OcuSelect computational profile.
+    </p>
+</section>
+
+
+<section class="input-panel">
+
+    <form method="POST">
+
+        <label>Molecular SMILES</label>
+
+        <textarea
+            name="smiles"
+            required
+            placeholder="Example: Cn1c(=O)c2c(ncn2C)n(C)c1=O"
+        >{{ submitted_smiles }}</textarea>
+
+        <div class="form-bottom">
+            <small>Enter one valid SMILES structure.</small>
+
+            <button class="btn primary" type="submit">
+                Run OcuSelect Analysis →
+            </button>
+        </div>
+
+    </form>
+
+</section>
+
+
+{% if error %}
+<div class="error-box">{{ error }}</div>
+{% endif %}
+
+
+{% if result %}
+
+<section class="results">
+
+    <div class="section-heading">
+        <span>COMPUTATIONAL PROFILE</span>
+        <h2>OcuSelect Results</h2>
+    </div>
+
+
+    <div class="structure-card">
+
+        <div class="structure-main">
+            <span class="mini-label">QUERY STRUCTURE</span>
+            <div class="mol-svg">
+                {{ result.query_svg|safe }}
+            </div>
+        </div>
+
+        <div class="structure-info">
+            <span class="mini-label">CANONICAL SMILES</span>
+            <p class="smiles">
+                {{ result.canonical_smiles }}
+            </p>
+        </div>
+
+    </div>
+
+
+    {% if result.warnings %}
+    <div class="error-box">
+        <strong>Low confidence</strong>
+        <ul>
+            {% for w in result.warnings %}
+            <li>{{ w }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+
+    <div class="prediction-grid">
+
+        <div class="prediction-card blue-card">
+            <span class="mini-label">
+                MODEL A • TGFBR1 ACTIVITY
+            </span>
+
+            <div class="big-number">
+                {% if result.pic50 is not none %}{{ result.pic50 }}{% else %}—{% endif %}
+            </div>
+
+            <strong>Predicted pIC50</strong>
+            <p>{{ result.activity_position }}</p>
+        </div>
+
+
+        <div class="prediction-card mint-card">
+            <span class="mini-label">
+                MODEL B • CORNEAL PERMEABILITY
+            </span>
+
+            <div class="big-number">
+                {% if result.logpapp is not none %}{{ result.logpapp }}{% else %}—{% endif %}
+            </div>
+
+            <strong>Predicted logPapp</strong>
+            <p>{{ result.permeability_position }}</p>
+        </div>
+
+    </div>
+
+
+    <div class="profile-banner">
+        <span>DUAL-ENDPOINT PROFILE</span>
+        <strong>{{ result.quadrant }}</strong>
+
+        <small>
+            Relative to medians of the respective
+            experimental datasets.
+        </small>
+    </div>
+
+
+    <div class="comparison-panel">
+
+        <div class="section-heading left">
+            <span>CHEMICAL-SPACE CONTEXT</span>
+            <h2>Nearest Known TGFBR1 Compound</h2>
+        </div>
+
+        <div class="molecule-comparison">
+
+            <div class="molecule-box">
+                <span class="mini-label">YOUR COMPOUND</span>
+
+                <div class="mol-svg">
+                    {{ result.query_svg|safe }}
+                </div>
+            </div>
+
+
+            <div class="similarity-center">
+                <span>TANIMOTO</span>
+                <strong>{{ result.similarity }}</strong>
+                <small>{{ result.similarity_context }}</small>
+            </div>
+
+
+            <div class="molecule-box">
+                <span class="mini-label">
+                    {{ result.nearest_chembl }}
+                </span>
+
+                <div class="mol-svg">
+                    {{ result.nearest_svg|safe }}
+                </div>
+
+                <small>
+                    Experimental pIC50:
+                    {{ result.nearest_pic50 }}
+                </small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="property-panel">
+
+        <div class="section-heading left">
+            <span>RDKit DESCRIPTORS</span>
+            <h2>Molecular Properties</h2>
+        </div>
+
+        <div class="property-grid">
+            <div><span>MW</span><strong>{{ result.mw }}</strong></div>
+            <div><span>LogP</span><strong>{{ result.logp }}</strong></div>
+            <div><span>TPSA</span><strong>{{ result.tpsa }}</strong></div>
+            <div><span>HBD</span><strong>{{ result.hbd }}</strong></div>
+            <div><span>HBA</span><strong>{{ result.hba }}</strong></div>
+            <div><span>Rotatable Bonds</span><strong>{{ result.rotatable }}</strong></div>
+            <div><span>Ring Count</span><strong>{{ result.rings }}</strong></div>
+            <div><span>Fraction CSP3</span><strong>{{ result.fraction_csp3 }}</strong></div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Model Info | OcuSelect{% endblock %}
+
+{% block content %}
+
+<section class="content-header">
+
+    <span class="eyebrow">MODEL TRANSPARENCY</span>
+
+    <h1>Model <span>Information</span></h1>
+
+    <p>
+        OcuSelect integrates two independently trained
+        regression models with chemical-similarity analysis.
+    </p>
+
+</section>
+
+
+<section class="model-grid">
+
+    <article class="model-card">
+
+        <div class="model-tag">MODEL A</div>
+
+        <h2>TGFBR1 Activity</h2>
+
+        <p class="model-sub">
+            Target: human TGFBR1 / ALK5 • CHEMBL4439
+        </p>
+
+        <div class="model-stat">
+            <strong>2,509</strong>
+            <span>unique compounds</span>
+        </div>
+
+        <div class="model-details">
+            <p><b>Endpoint</b> IC50 converted to pIC50</p>
+            <p><b>Representation</b> Morgan fingerprint, radius 2, 2048 bits</p>
+            <p><b>Algorithm</b> HistGradientBoostingRegressor</p>
+            <p><b>OOF R²</b> 0.7076</p>
+            <p><b>OOF MAE</b> 0.4501</p>
+            <p><b>OOF RMSE</b> 0.6110</p>
+            <p><b>Dataset median</b> {{ activity_median }} pIC50</p>
+        </div>
+
+    </article>
+
+
+    <article class="model-card">
+
+        <div class="model-tag mint-tag">MODEL B</div>
+
+        <h2>Corneal Permeability</h2>
+
+        <p class="model-sub">
+            Experimental corneal permeability dataset
+        </p>
+
+        <div class="model-stat mint-number">
+            <strong>{{ corneal_n }}</strong>
+            <span>experimental compounds</span>
+        </div>
+
+        <div class="model-details">
+            <p><b>Endpoint</b> Experimental logPapp</p>
+            <p><b>Representation</b> 8 physicochemical descriptors</p>
+            <p><b>Algorithm</b> ExtraTreesRegressor</p>
+            <p><b>CV R² (mean of 10 repeats)</b> {{ corneal_r2 }}</p>
+            <p><b>CV MAE</b> {{ corneal_mae }}</p>
+            <p><b>CV RMSE</b> {{ corneal_rmse }}</p>
+            <p><b>Dataset median</b> {{ permeability_median }} logPapp</p>
+        </div>
+
+    </article>
+
+</section>
+
+
+<section class="method-card">
+
+    <h2>How OcuSelect combines the models</h2>
+
+    <p>
+        The two predictions are not merged into a clinical score.
+        Instead, OcuSelect reports their positions relative to the
+        respective experimental dataset medians and places the query
+        into a descriptive activity/permeability profile.
+    </p>
+
+    <p>
+        Tanimoto similarity is calculated separately using Morgan
+        fingerprints. The 0.40 and 0.70 similarity categories are
+        display heuristics, not experimentally validated therapeutic
+        cutoffs.
+    </p>
+
+</section>
+
+<section class="method-card">
+
+    <h2>Data sources</h2>
+
+    <p>
+        Model A uses TGFBR1 (ALK5) IC50 data from ChEMBL
+        (target CHEMBL4439). Model B uses the experimental corneal
+        permeability dataset from QsarDB (record 2010PR1398), which
+        collects measurements from several published studies.
+    </p>
+
+</section>
+
+
+<section class="method-card">
+
+    <h2>Limitations</h2>
+
+    <p>
+        Model A was trained only on compounds that were already tested
+        against TGFBR1, so it cannot recognise inactive compounds.
+        If a query is not similar to the training compounds
+        (Tanimoto below {{ '%.2f'|format(similarity_min) }}), the result
+        is marked as low confidence.
+    </p>
+
+    <p>
+        Model B was trained on only {{ corneal_n }} compounds with
+        molecular weight up to about 400. Its accuracy is moderate, and
+        larger molecules are outside its training range.
+    </p>
+
+    <p>
+        Cross-validation scores can look better than real performance
+        on new chemistry. These results are for research exploration only.
+    </p>
+
+</section>
+
+{% endblock %}

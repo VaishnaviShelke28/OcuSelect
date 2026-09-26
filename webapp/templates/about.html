@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}About | OcuSelect{% endblock %}
+
+{% block content %}
+
+<section class="content-header">
+    <span class="eyebrow">ABOUT THE PROJECT</span>
+    <h1>About <span>OcuSelect</span></h1>
+</section>
+
+
+<section class="about-card">
+
+    <div class="about-icon">◉</div>
+
+    <h2>Ocular Compound Suitability Analyzer</h2>
+
+    <p>
+        OcuSelect is an M.Sc. Bioinformatics computational
+        profiling tool designed to integrate target-activity
+        prediction, corneal-permeability prediction, molecular
+        descriptors and chemical-similarity context in one workflow.
+    </p>
+
+    <div class="about-flow">
+        <span>SMILES</span>
+        <b>→</b>
+        <span>RDKit</span>
+        <b>→</b>
+        <span>ML Models</span>
+        <b>→</b>
+        <span>Similarity</span>
+        <b>→</b>
+        <span>Profile</span>
+    </div>
+
+</section>
+
+
+<section class="developer-card">
+
+    <span class="eyebrow">DEVELOPER</span>
+
+    <h2>Vaishnavi Rajendra Shelke</h2>
+
+    <p>M.Sc. Bioinformatics</p>
+
+    <div class="social-buttons">
+
+        <a
+            class="btn secondary"
+            target="_blank"
+            href="https://www.linkedin.com/in/vaishnavi-rajendra-shelke-9464672a6"
+        >
+            LinkedIn ↗
+        </a>
+
+        <a
+            class="btn secondary"
+            target="_blank"
+            href="https://github.com/VaishnaviShelke28"
+        >
+            GitHub ↗
+        </a>
+
+    </div>
+
+</section>
+
+
+<div class="research-note">
+    OcuSelect is intended for academic research and computational
+    exploration. Predictions should not be interpreted as clinical,
+    therapeutic, efficacy or safety conclusions.
+</div>
+
+{% endblock %}

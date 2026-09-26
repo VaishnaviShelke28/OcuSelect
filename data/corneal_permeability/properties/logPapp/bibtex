@@ -1,0 +1,144 @@
+@article{Duffel_1986,
+	title = {N-Substituted sulfonamide carbonic anhydrase inhibitors with topical effects on intraocular pressure},
+	volume = {29},
+	ISSN = {1520-4804},
+	url = {http://dx.doi.org/10.1021/jm00158a028},
+	DOI = {10.1021/jm00158a028},
+	number = {8},
+	journal = {Journal of Medicinal Chemistry},
+	publisher = {American Chemical Society (ACS)},
+	author = {Duffel, Michael W. and Ing, I. Silwai and Segarra, Tyrone M. and Dixson, John A. and Barfknecht, Charles F. and Schoenwald, Ronald D.},
+	year = {1986},
+	month = {Aug},
+	pages = {1488–1494}
+}
+
+@article{Maren_1983,
+	title = {The transcorneal permeability of sulfonamide carbonic anhydrase inhibitors and their effect on aqueous humor secretion},
+	volume = {36},
+	ISSN = {0014-4835},
+	url = {http://dx.doi.org/10.1016/0014-4835(83)90041-6},
+	DOI = {10.1016/0014-4835(83)90041-6},
+	number = {4},
+	journal = {Experimental Eye Research},
+	publisher = {Elsevier BV},
+	author = {Maren, Thomas H. and Jankowska, Lidia and Sanyal, Gautam and Edelhauser, Henry F.},
+	year = {1983},
+	month = {Apr},
+	pages = {457–479}
+}
+
+@article{Wang_1991,
+	title = {Lipophilicity influence on conjunctival drug penetration in the pigmented rabbit: A comparison with corneal penetration},
+	volume = {10},
+	ISSN = {1460-2202},
+	url = {http://dx.doi.org/10.3109/02713689109001766},
+	DOI = {10.3109/02713689109001766},
+	number = {6},
+	journal = {Current Eye Research},
+	publisher = {Informa UK Limited},
+	author = {Wang, Wei and Sasaki, Hitoshi and Chien, Du-Shieng and Lee, Vincent H.L.},
+	year = {1991},
+	month = {Jan},
+	pages = {571–579}
+}
+
+@article{Lach_1983,
+	title = {Corneal Penetration Behavior of β-Blocking Agents II: Assessment of Barrier Contributions},
+	volume = {72},
+	ISSN = {0022-3549},
+	url = {http://dx.doi.org/10.1002/jps.2600721109},
+	DOI = {10.1002/jps.2600721109},
+	number = {11},
+	journal = {Journal of Pharmaceutical Sciences},
+	publisher = {Elsevier BV},
+	author = {Lach, John L. and Huang, Hong-Shian and Schoenwald, Ronald D.},
+	year = {1983},
+	month = {Nov},
+	pages = {1272–1279}
+}
+
+@article{Chiang_1986,
+	title = {Ocular pharmacokinetic models of clonidine-3H hydrochloride},
+	volume = {14},
+	ISSN = {0090-466X},
+	url = {http://dx.doi.org/10.1007/BF01065260},
+	DOI = {10.1007/bf01065260},
+	number = {2},
+	journal = {Journal of Pharmacokinetics and Biopharmaceutics},
+	publisher = {Springer Nature},
+	author = {Chiang, Chiao-Hsi and Schoenwald, Ronald D.},
+	year = {1986},
+	month = {Apr},
+	pages = {175–211}
+}
+
+@article{chiang1986,
+  title={Corneal permeability of adrenergic agents potentially useful in glaucoma},
+  author={Chiang, CH and Schoenwald, RD and Huang, HS},
+  journal={J Taiwan Pharmaceut Assoc},
+  volume={38},
+  pages={67--84},
+  year={1986}
+}
+
+@article{Schoenwald_1982,
+	title = {Disposition of cyclophosphamide in the rabbit and human cornea},
+	volume = {3},
+	ISSN = {1099-081X},
+	url = {http://dx.doi.org/10.1002/bdd.2510030306},
+	DOI = {10.1002/bdd.2510030306},
+	number = {3},
+	journal = {Biopharmaceutics & Drug Disposition},
+	publisher = {Wiley-Blackwell},
+	author = {Schoenwald, Ronald D. and Houseman, Jeffrey A.},
+	year = {1982},
+	month = {Jul},
+	pages = {231–241}
+}
+
+@article{Eller_1985,
+	title = {Topical Carbonic Anhydrase Inhibitors III: Optimization Model for Corneal Penetration of Ethoxzolamide Analogues},
+	volume = {74},
+	ISSN = {0022-3549},
+	url = {http://dx.doi.org/10.1002/jps.2600740210},
+	DOI = {10.1002/jps.2600740210},
+	number = {2},
+	journal = {Journal of Pharmaceutical Sciences},
+	publisher = {Elsevier BV},
+	author = {Eller, M.G. and Schoenwald, R.D. and Dixson, J.A. and Segarra, T. and Barfknecht, C.F.},
+	year = {1985},
+	month = {Feb},
+	pages = {155–160}
+}
+
+@article{WU_1993,
+	title = {Studies of Carbonic Anhydrase Inhibitors: Physicochemical Properties and Bioactivities of New Thiadiazole Derivatives},
+	volume = {9},
+	ISSN = {1557-7732},
+	url = {http://dx.doi.org/10.1089/jop.1993.9.97},
+	DOI = {10.1089/jop.1993.9.97},
+	number = {2},
+	journal = {Journal of Ocular Pharmacology and Therapeutics},
+	publisher = {Mary Ann Liebert Inc},
+	author = {WU, NAI-CHIN and CHIANG, CHIAO-HSI and LEE, AN-RONG},
+	year = {1993},
+	month = {Jan},
+	pages = {97–108}
+}
+
+@article{jankowska1986,
+  title={The relations between ionic and non-ionic diffusion of sulfonamides across the rabbit cornea.},
+  author={Jankowska, Lidia M and Bar-Ilan, AMIR and Maren, TH},
+  journal={Investigative ophthalmology \& visual science},
+  volume={27},
+  number={1},
+  pages={29-37},
+  year={1986},
+  publisher={The Association for Research in Vision and Ophthalmology}
+}
+@misc{rusinko2008,
+  title={Use of mdck cell line to predict corneal penetration of drugs},
+  author={Rusinko, A. and Hellberg, M.R. and May, J.A. and Owen, G.R.},
+  year={2008}
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ModelRegistry xmlns="http://www.qsardb.org/QDB">
+    <Model>
+        <Id>Eq.3b</Id>
+        <Name>Model for drug-like compounds at pH 7.4</Name>
+        <Labels></Labels>
+        <Cargos>pmml bibtex</Cargos>
+        <PropertyId>logPapp</PropertyId>
+    </Model>
+    <Model>
+        <Id>Eq.4b</Id>
+        <Name>Model for drug-like compounds at pH 8.0</Name>
+        <Labels></Labels>
+        <Cargos>pmml bibtex</Cargos>
+        <PropertyId>logPapp</PropertyId>
+    </Model>
+</ModelRegistry>

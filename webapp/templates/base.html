@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}OcuSelect{% endblock %}</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<aside class="sidebar" id="sidebar">
+
+    <button class="collapse-btn" id="sidebarToggle">‹</button>
+
+    <div class="brand">
+        <div class="brand-logo">◉</div>
+
+        <div class="brand-copy">
+            <strong>OcuSelect</strong>
+            <small>Ocular Compound<br>Profiling</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="/"
+           class="{{ 'active' if request.path == '/' else '' }}">
+            <span class="nav-icon">⌂</span>
+            <span class="nav-label">Home</span>
+        </a>
+
+        <a href="/analyze"
+           class="{{ 'active' if request.path == '/analyze' else '' }}">
+            <span class="nav-icon">⚗</span>
+            <span class="nav-label">Analyze Compound</span>
+        </a>
+
+        <a href="/batch"
+           class="{{ 'active' if request.path == '/batch' else '' }}">
+            <span class="nav-icon">▤</span>
+            <span class="nav-label">Batch Analysis</span>
+        </a>
+
+        <a href="/model-info"
+           class="{{ 'active' if request.path == '/model-info' else '' }}">
+            <span class="nav-icon">▥</span>
+            <span class="nav-label">Model Info</span>
+        </a>
+
+        <a href="/about"
+           class="{{ 'active' if request.path == '/about' else '' }}">
+            <span class="nav-icon">ⓘ</span>
+            <span class="nav-label">About</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-art-wrap">
+        <img
+            src="{{ url_for('static',
+                     filename='images/dna-chair-sidebar.gif') }}"
+            class="sidebar-art"
+            alt="DNA bioinformatics workstation"
+        >
+    </div>
+
+</aside>
+
+<main class="page" id="page">
+    {% block content %}{% endblock %}
+</main>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>

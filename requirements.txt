@@ -1,0 +1,12 @@
+# Replace these lines with your exact versions if you can:
+#   run   pip freeze   in the environment where you trained the models
+# Keep the SAME scikit-learn version you trained with (model files depend on it).
+flask
+pandas
+numpy
+joblib
+rdkit
+scikit-learn==1.8.0
+matplotlib
+gunicorn
+gunicorn
